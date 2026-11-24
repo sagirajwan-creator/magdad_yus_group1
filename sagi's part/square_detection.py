@@ -68,7 +68,13 @@ def find_squares(img):
     return squares
 
 
-image = cv2.imread(fr"C:\Users\TLP\-\image processing tools\password detection\normal_pic.jpg")
+import os
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+image_path = os.path.join(script_dir, "normal_pic.jpg")
+image = cv2.imread(image_path)
+if image is None:
+    raise FileNotFoundError(f"Could not find image at {image_path}")
 
 #delete_color(image)
 
